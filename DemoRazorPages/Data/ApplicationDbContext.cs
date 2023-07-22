@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using DemoRazorPages.Models;
 
 namespace DemoRazorPages.Data;
 
@@ -9,4 +10,5 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+    public DbSet<DemoRazorPages.Models.Student> Student { get; set; } = default!;
 }
