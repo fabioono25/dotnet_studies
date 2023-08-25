@@ -29,6 +29,8 @@ namespace BasicStore.Catalog.Domain
             Value = value;
             CreationDate = creationDate;
             Image = image;
+
+            Validate();
         }
 
         // Ad-Hoc setters
@@ -44,7 +46,7 @@ namespace BasicStore.Catalog.Domain
 
         public void UpdateDescription(string description)
         {
-            //Validation.ValidarSeVazio(description, "Description necessary");
+            AssertionConcern.ValidateIfEmpty(Name, "Description required");
             Description = description;
         }
 
@@ -67,11 +69,11 @@ namespace BasicStore.Catalog.Domain
 
         public void Validate()
         {
-            //Validations.ValidarSeVazio(Name, "Name required");
-            //Validations.ValidarSeVazio(Description, "Description required");
-            //Validations.ValidarSeIgual(CategoryId, Guid.Empty, "CategoryId required");
-            //Validations.ValidarSeMenorQue(Value, 1, "Value must be more than 0");
-            //Validations.ValidarSeVazio(Image, "Image required");
+            AssertionConcern.ValidateIfEmpty(Name, "Name required");
+            AssertionConcern.ValidateIfEmpty(Description, "Description required");
+            AssertionConcern.ValidateIfEqual(CategoryId, Guid.Empty, "CategoryId required");
+            AssertionConcern.ValidateIfLessThan(Value, 1, "Value must be more than 0");
+            AssertionConcern.ValidateIfEmpty(Image, "Image required");
         }
     }
 
@@ -85,11 +87,19 @@ namespace BasicStore.Catalog.Domain
         {
             Name = name;
             Code = code;
+
+            Validate();
         }
 
         public override string ToString()
         {
             return $"{Name} - {Code}";
+        }
+
+        public void Validate()
+        {
+            AssertionConcern.ValidateIfEmpty(Name, "Name required");
+            AssertionConcern.ValidateIfEqual(Code, 0, "Code must not be 0");
         }
     }
 }
