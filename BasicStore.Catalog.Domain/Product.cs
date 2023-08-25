@@ -53,7 +53,7 @@ namespace BasicStore.Catalog.Domain
         public void DecreaseStock(int quantity)
         {
             if (quantity < 0) quantity *= -1;
-            // if (!PossuiEstoque(quantity)) throw new DomainException("Insufficient stock");
+            if (!HasStock(quantity)) throw new DomainException("Insufficient stock");
             QuantityStock -= quantity;
         }
 
