@@ -10,6 +10,15 @@ public class Category : Entity
     public string Name { get; private set; }
     public int Code { get; private set; }
 
+    // because of EF
+    public ICollection<Product> Products{ get; set; }
+
+    // because of EF
+    protected Category()
+    {
+        
+    }
+
     public Category(string name, int code)
     {
         Name = name;
