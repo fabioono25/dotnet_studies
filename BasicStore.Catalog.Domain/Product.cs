@@ -10,7 +10,7 @@ namespace BasicStore.Catalog.Domain
         public string Name { get; set; }
         public string Description { get; private set; }
         public bool Active { get; private set; }
-        public decimal Value { get; private set; }
+        public decimal Price { get; private set; }
         public DateTime CreationDate { get; private set; }
         public string Image { get; private set; }
         public int QuantityStock { get; private set; }
@@ -22,13 +22,13 @@ namespace BasicStore.Catalog.Domain
 
         public Dimensions Dimensions { get; set; }
 
-        public Product(string name, string description, bool active, decimal value, Guid categoryId, DateTime creationDate, string image, Dimensions dimensions)
+        public Product(string name, string description, bool active, decimal price, Guid categoryId, DateTime creationDate, string image, Dimensions dimensions)
         {
             CategoryId = categoryId;
             Name = name;
             Description = description;
             Active = active;
-            Value = value;
+            Price = price;
             CreationDate = creationDate;
             Image = image;
             Dimensions = dimensions;
@@ -75,7 +75,7 @@ namespace BasicStore.Catalog.Domain
             AssertionConcern.ValidateIfEmpty(Name, "Name required");
             AssertionConcern.ValidateIfEmpty(Description, "Description required");
             AssertionConcern.ValidateIfEqual(CategoryId, Guid.Empty, "CategoryId required");
-            AssertionConcern.ValidateIfLessThan(Value, 1, "Value must be more than 0");
+            AssertionConcern.ValidateIfLessThan(Price, 1, "Price must be more than 0");
             AssertionConcern.ValidateIfEmpty(Image, "Image required");
         }
     }
