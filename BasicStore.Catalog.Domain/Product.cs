@@ -20,7 +20,9 @@ namespace BasicStore.Catalog.Domain
 
         public Category Category { get; private set; }
 
-        public Product(string name, string description, bool active, decimal value, Guid categoryId, DateTime creationDate, string image)
+        public Dimensions Dimensions { get; set; }
+
+        public Product(string name, string description, bool active, decimal value, Guid categoryId, DateTime creationDate, string image, Dimensions dimensions)
         {
             CategoryId = categoryId;
             Name = name;
@@ -29,6 +31,7 @@ namespace BasicStore.Catalog.Domain
             Value = value;
             CreationDate = creationDate;
             Image = image;
+            Dimensions = dimensions;
 
             Validate();
         }
@@ -74,32 +77,6 @@ namespace BasicStore.Catalog.Domain
             AssertionConcern.ValidateIfEqual(CategoryId, Guid.Empty, "CategoryId required");
             AssertionConcern.ValidateIfLessThan(Value, 1, "Value must be more than 0");
             AssertionConcern.ValidateIfEmpty(Image, "Image required");
-        }
-    }
-
-    // serves product
-    public class Category : Entity
-    {
-        public string Name { get; private set; }
-        public int Code { get; private set; }
-
-        public Category(string name, int code)
-        {
-            Name = name;
-            Code = code;
-
-            Validate();
-        }
-
-        public override string ToString()
-        {
-            return $"{Name} - {Code}";
-        }
-
-        public void Validate()
-        {
-            AssertionConcern.ValidateIfEmpty(Name, "Name required");
-            AssertionConcern.ValidateIfEqual(Code, 0, "Code must not be 0");
         }
     }
 }
