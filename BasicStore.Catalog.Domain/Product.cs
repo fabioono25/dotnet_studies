@@ -22,6 +22,10 @@ namespace BasicStore.Catalog.Domain
 
         public Dimensions Dimensions { get; set; }
 
+        protected Product()
+        {
+        }
+
         public Product(string name, string description, bool active, decimal price, Guid categoryId, DateTime creationDate, string image, Dimensions dimensions)
         {
             CategoryId = categoryId;
