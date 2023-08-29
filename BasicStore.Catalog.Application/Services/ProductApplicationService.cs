@@ -5,7 +5,7 @@ using BasicStore.Core.DomainObjects;
 
 namespace BasicStore.Catalog.Application.Services
 {
-    public class ProductApplicationService: IProductApplicationService
+    public class ProductApplicationService : IProductApplicationService
     {
         private readonly IProductRepository _productRepository;
         private readonly IStockService _stockService;

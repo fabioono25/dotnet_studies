@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BasicStore.Core.DomainObjects
+﻿namespace BasicStore.Core.DomainObjects
 {
     public class DomainException : Exception
     {

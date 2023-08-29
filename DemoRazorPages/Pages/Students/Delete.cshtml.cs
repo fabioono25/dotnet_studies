@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DemoRazorPages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using DemoRazorPages.Data;
-using DemoRazorPages.Models;
 
 namespace DemoRazorPages.Pages.Students
 {
@@ -20,7 +15,7 @@ namespace DemoRazorPages.Pages.Students
         }
 
         [BindProperty]
-      public Student Student { get; set; } = default!;
+        public Student Student { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +30,7 @@ namespace DemoRazorPages.Pages.Students
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Student = student;
             }

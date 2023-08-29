@@ -1,6 +1,6 @@
+using DemoRazorPages.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using DemoRazorPages.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

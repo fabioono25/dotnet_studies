@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Catalog.Domain;
+﻿using BasicStore.Catalog.Domain;
 using BasicStore.Core.DomainObjects;
 
 namespace StoreDDD.Catalog.Domain.Tests

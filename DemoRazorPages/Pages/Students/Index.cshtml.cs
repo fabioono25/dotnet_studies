@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using DemoRazorPages.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using DemoRazorPages.Data;
-using DemoRazorPages.Models;
 
 namespace DemoRazorPages.Pages.Students
 {
@@ -19,7 +13,7 @@ namespace DemoRazorPages.Pages.Students
             _context = context;
         }
 
-        public IList<Student> Student { get;set; } = default!;
+        public IList<Student> Student { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

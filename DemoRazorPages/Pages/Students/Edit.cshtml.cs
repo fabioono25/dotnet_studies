@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DemoRazorPages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DemoRazorPages.Data;
-using DemoRazorPages.Models;
 
 namespace DemoRazorPages.Pages.Students
 {
@@ -30,7 +24,7 @@ namespace DemoRazorPages.Pages.Students
                 return NotFound();
             }
 
-            var student =  await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
                 return NotFound();
@@ -71,7 +65,7 @@ namespace DemoRazorPages.Pages.Students
 
         private bool StudentExists(int id)
         {
-          return (_context.Student?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Student?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

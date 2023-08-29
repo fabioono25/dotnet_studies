@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DemoRazorPages.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using DemoRazorPages.Data;
-using DemoRazorPages.Models;
 
 namespace DemoRazorPages.Pages.Students
 {
@@ -26,12 +20,12 @@ namespace DemoRazorPages.Pages.Students
 
         [BindProperty]
         public Student Student { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Student == null || Student == null)
+            if (!ModelState.IsValid || _context.Student == null || Student == null)
             {
                 return Page();
             }

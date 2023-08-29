@@ -4,7 +4,7 @@ using BasicStore.Core.Bus;
 namespace BasicStore.Catalog.Domain
 {
     // representa acoes ligadas a linguaguem ubiqua
-    public class StockService: IStockService
+    public class StockService : IStockService
     {
         private readonly IProductRepository _productRepository;
         private readonly IMediatrHandler _bus;

@@ -1,7 +1,7 @@
 ﻿using BasicStore.Catalog.Application.Services;
 using BasicStore.Catalog.Data.Repositories;
-using BasicStore.Catalog.Domain.Events;
 using BasicStore.Catalog.Domain;
+using BasicStore.Catalog.Domain.Events;
 using BasicStore.Core.Bus;
 using MediatR;
 using StoreDDD.Catalog.Data;

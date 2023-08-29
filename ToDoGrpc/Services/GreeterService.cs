@@ -1,5 +1,4 @@
 using Grpc.Core;
-using ToDoGrpc;
 
 namespace ToDoGrpc.Services;
 

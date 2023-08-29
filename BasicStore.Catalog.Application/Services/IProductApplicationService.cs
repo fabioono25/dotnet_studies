@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Catalog.Application.DTOs;
+﻿using BasicStore.Catalog.Application.DTOs;
 
 namespace BasicStore.Catalog.Application.Services
 {
-    public interface IProductApplicationService: IDisposable
+    public interface IProductApplicationService : IDisposable
     {
         Task<IEnumerable<ProductDto>> GetByCategory(int code);
         Task<ProductDto> GetById(Guid id);

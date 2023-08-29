@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BasicStore.WebApp.MVC.Controllers
 {
-    public class ShowCaseController: Controller
+    public class ShowCaseController : Controller
     {
         private readonly IProductApplicationService _productAppService;
 

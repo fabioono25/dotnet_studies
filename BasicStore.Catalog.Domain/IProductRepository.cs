@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Core.Data;
+﻿using BasicStore.Core.Data;
 
 namespace BasicStore.Catalog.Domain
 {

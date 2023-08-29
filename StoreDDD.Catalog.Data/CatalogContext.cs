@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StoreDDD.Catalog.Data
 {
-    public class CatalogContext: DbContext ,IUnitOfWork
+    public class CatalogContext : DbContext, IUnitOfWork
     {
-        public CatalogContext(DbContextOptions<CatalogContext> options) : base(options) {}
+        public CatalogContext(DbContextOptions<CatalogContext> options) : base(options) { }
 
         public DbSet<Product> Products { get; set; }
 

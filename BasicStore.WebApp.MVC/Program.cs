@@ -1,10 +1,9 @@
+using BasicStore.Catalog.Application.AutoMapper;
 using BasicStore.WebApp.MVC.Data;
+using BasicStore.WebApp.MVC.Setup;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
-using MediatR;
-using BasicStore.Catalog.Application.AutoMapper;
-using BasicStore.WebApp.MVC.Setup;
 using StoreDDD.Catalog.Data;
 
 var builder = WebApplication.CreateBuilder(args);

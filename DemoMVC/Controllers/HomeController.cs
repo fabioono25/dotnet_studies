@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using DemoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using DemoMVC.Models;
+using System.Diagnostics;
 
 namespace DemoMVC.Controllers;
 

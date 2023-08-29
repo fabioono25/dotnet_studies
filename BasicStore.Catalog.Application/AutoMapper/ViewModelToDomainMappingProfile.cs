@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BasicStore.Catalog.Domain;
 using BasicStore.Catalog.Application.DTOs;
+using BasicStore.Catalog.Domain;
 
 namespace BasicStore.Catalog.Application.AutoMapper
 {

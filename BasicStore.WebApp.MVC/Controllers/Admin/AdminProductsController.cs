@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BasicStore.WebApp.MVC.Controllers.Admin
 {
-    public class AdminProductsController: Controller
+    public class AdminProductsController : Controller
     {
         private readonly IProductApplicationService _productAppService;
 

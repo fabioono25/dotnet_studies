@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DemoMVC.Data;
+﻿using DemoMVC.Data;
 using DemoMVC.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoMVC.Controllers
 {
@@ -22,9 +17,9 @@ namespace DemoMVC.Controllers
         // GET: Students
         public async Task<IActionResult> Index()
         {
-              return _context.Student != null ? 
-                          View(await _context.Student.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Student'  is null.");
+            return _context.Student != null ?
+                        View(await _context.Student.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Student'  is null.");
         }
 
         // GET: Students/Details/5
@@ -150,14 +145,14 @@ namespace DemoMVC.Controllers
             {
                 _context.Student.Remove(student);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StudentExists(int id)
         {
-          return (_context.Student?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Student?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

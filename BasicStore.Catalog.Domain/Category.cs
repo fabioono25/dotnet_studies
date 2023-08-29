@@ -11,12 +11,12 @@ public class Category : Entity
     public int Code { get; private set; }
 
     // because of EF
-    public ICollection<Product> Products{ get; set; }
+    public ICollection<Product> Products { get; set; }
 
     // because of EF
     protected Category()
     {
-        
+
     }
 
     public Category(string name, int code)

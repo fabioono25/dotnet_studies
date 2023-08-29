@@ -11,7 +11,7 @@ namespace DemoWebAPI.Controllers
         [HttpGet(Name = "students")]
         public IEnumerable<Student> Get()
         {
-            return new[] { new Student { Id=1, Name = "Jane"}, new Student { Id=2, Name = "John"} };
+            return new[] { new Student { Id = 1, Name = "Jane" }, new Student { Id = 2, Name = "John" } };
         }
     }
 }
