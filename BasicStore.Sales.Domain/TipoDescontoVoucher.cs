@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicStore.Sales.Domain
 {
-    internal class TipoDescontoVoucher
+    public enum TipoDescontoVoucher
     {
+        Porcentagem = 0,
+        Valor = 1
     }
 }
