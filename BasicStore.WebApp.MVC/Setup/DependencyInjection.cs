@@ -3,6 +3,7 @@ using BasicStore.Catalog.Data.Repositories;
 using BasicStore.Catalog.Domain;
 using BasicStore.Catalog.Domain.Events;
 using BasicStore.Core.Bus;
+using BasicStore.Sales.Application.Commands;
 using MediatR;
 using StoreDDD.Catalog.Data;
 
@@ -22,6 +23,9 @@ namespace BasicStore.WebApp.MVC.Setup
             services.AddScoped<CatalogContext>();
 
             services.AddScoped<INotificationHandler<ProductBellowStockEvent>, ProductEventHandler>();
+
+            // Vendas
+            services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
         }
     }
 }
