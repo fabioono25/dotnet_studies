@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Core.Messages;
+﻿using BasicStore.Core.Messages;
 using MediatR;
 
 namespace BasicStore.Sales.Application.Commands

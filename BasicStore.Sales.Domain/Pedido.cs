@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Core.DomainObjects;
+﻿using BasicStore.Core.DomainObjects;
 
 namespace BasicStore.Sales.Domain
 {
-    public class Pedido: Entity, IAggregateRoot
+    public class Pedido : Entity, IAggregateRoot
     {
         public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
