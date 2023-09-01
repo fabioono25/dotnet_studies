@@ -7,7 +7,7 @@ namespace BasicStore.Catalog.Domain
     public class StockService : IStockService
     {
         private readonly IProductRepository _productRepository;
-        private readonly IMediatrHandler _bus;
+        private readonly IMediatorHandler _bus;
 
         public StockService(IProductRepository productRepository)
         {

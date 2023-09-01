@@ -1,9 +1,14 @@
-﻿namespace BasicStore.Core.DomainObjects
+﻿using BasicStore.Core.Messages;
+
+namespace BasicStore.Core.DomainObjects
 {
     // markup class
     public abstract class Entity
     {
         public Guid Id { get; set; } // every entity has identity
+        private List<Event> _notificacoes;
+
+        public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly();
 
         protected Entity()
         {
@@ -51,6 +56,12 @@
         public virtual bool EhValido()
         {
             throw new NotImplementedException();
+        }
+
+
+        public void LimparEventos()
+        {
+            _notificacoes?.Clear();
         }
     }
 }
