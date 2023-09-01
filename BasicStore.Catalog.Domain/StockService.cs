@@ -1,5 +1,5 @@
 ﻿using BasicStore.Catalog.Domain.Events;
-using BasicStore.Core.Bus;
+using BasicStore.Core.Communication.Mediator;
 
 namespace BasicStore.Catalog.Domain
 {

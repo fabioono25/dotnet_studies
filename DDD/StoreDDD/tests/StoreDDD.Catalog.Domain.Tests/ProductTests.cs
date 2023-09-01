@@ -1,7 +1,6 @@
-﻿using BasicStore.Catalog.Domain;
-using BasicStore.Core.DomainObjects;
+﻿using BasicStore.Core.DomainObjects;
 
-namespace StoreDDD.Catalog.Domain.Tests
+namespace BasicStore.Catalog.Domain.Tests
 {
     public class ProductTests
     {

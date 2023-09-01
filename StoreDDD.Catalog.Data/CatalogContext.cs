@@ -2,7 +2,7 @@
 using BasicStore.Core.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace StoreDDD.Catalog.Data
+namespace BasicStore.Catalog.Data
 {
     public class CatalogContext : DbContext, IUnitOfWork
     {

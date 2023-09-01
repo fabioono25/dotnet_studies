@@ -1,5 +1,4 @@
-﻿using BasicStore.Core.Bus;
-using BasicStore.Core.Data;
+﻿using BasicStore.Core.Data;
 using BasicStore.Core.Messages;
 using BasicStore.Sales.Domain;
 using System;
@@ -9,6 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using BasicStore.Core.Communication.Mediator;
 
 namespace BasicStore.Sales.Data
 {

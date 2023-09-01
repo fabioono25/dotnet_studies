@@ -1,5 +1,5 @@
 ﻿using BasicStore.Catalog.Application.Services;
-using BasicStore.Core.Bus;
+using BasicStore.Core.Communication.Mediator;
 using BasicStore.Sales.Application.Commands;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,7 +56,7 @@ namespace BasicStore.WebApp.MVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            TempData["Erros"] = "Produto indisponivel";
+            TempData["Erros"] = ObterMensagensErro();
             return RedirectToAction("ProdutoDetalhe", "Vitrine", new { id });
         }
 

@@ -1,4 +1,4 @@
-﻿using BasicStore.Core.Bus;
+﻿using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.DomainObjects;
 using System;
 using System.Collections.Generic;

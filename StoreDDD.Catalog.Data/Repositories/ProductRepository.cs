@@ -1,7 +1,6 @@
 ﻿using BasicStore.Catalog.Domain;
 using BasicStore.Core.Data;
 using Microsoft.EntityFrameworkCore;
-using StoreDDD.Catalog.Data;
 
 namespace BasicStore.Catalog.Data.Repositories
 {

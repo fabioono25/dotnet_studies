@@ -1,4 +1,6 @@
-﻿using BasicStore.Core.Messages;
+﻿using BasicStore.Core.Communication.Mediator;
+using BasicStore.Core.Messages;
+using BasicStore.Core.Messages.Common.Notifications;
 using BasicStore.Sales.Domain;
 using MediatR;
 
@@ -7,10 +9,12 @@ namespace BasicStore.Sales.Application.Commands
     public class PedidoCommandHandler : IRequestHandler<AdicionarItemPedidoCommand, bool>
     {
         private readonly IPedidoRepository _pedidoRepository;
+        private readonly IMediatorHandler _mediatorHandler;
 
-        public PedidoCommandHandler(IPedidoRepository pedidoRepository)
+        public PedidoCommandHandler(IPedidoRepository pedidoRepository, IMediatorHandler mediatorHandler)
         {
             _pedidoRepository = pedidoRepository;
+            _mediatorHandler = mediatorHandler;
         }
 
         public async Task<bool> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
@@ -56,7 +60,7 @@ namespace BasicStore.Sales.Application.Commands
 
             foreach (var error in message.ValidationResult.Errors)
             {
-                // _mediatorHandler.PublicarNotificacao(new DomainNotification(message.MessageType, error.ErrorMessage));
+                _mediatorHandler.PublicarNotificacao(new DomainNotification(message.MessageType, error.ErrorMessage));
             }
 
             return false;
