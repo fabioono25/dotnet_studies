@@ -1,5 +1,6 @@
 ﻿using BasicStore.Catalog.Domain;
 using BasicStore.Core.Data;
+using BasicStore.Core.Messages;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasicStore.Catalog.Data
@@ -17,6 +18,8 @@ namespace BasicStore.Catalog.Data
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                          e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
+
+            modelBuilder.Ignore<Event>();
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogContext).Assembly);
         }

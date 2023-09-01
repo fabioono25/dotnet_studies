@@ -6,6 +6,7 @@ using BasicStore.Catalog.Domain.Events;
 using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.Messages.Common.Notifications;
 using BasicStore.Sales.Application.Commands;
+using BasicStore.Sales.Application.Events;
 using BasicStore.Sales.Data;
 using BasicStore.Sales.Data.Repository;
 using BasicStore.Sales.Domain;
@@ -36,6 +37,11 @@ namespace BasicStore.WebApp.MVC.Setup
             services.AddScoped<VendasContext>();
 
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
+
+            services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoAtualizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoItemAdicionadoEvent>, PedidoEventHandler>();
+            //services.AddScoped<INotificationHandler<PagamentoRecusadoEvent>, PedidoEventHandler>();
         }
     }
 }

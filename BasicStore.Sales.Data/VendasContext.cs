@@ -15,8 +15,6 @@ namespace BasicStore.Sales.Data
     public class VendasContext : DbContext, IUnitOfWork
     {
         private readonly IMediatorHandler _mediatorHandler;
-
-
         public VendasContext(DbContextOptions<VendasContext> options, IMediatorHandler mediatorHandler)
             : base(options)
         {
@@ -26,7 +24,6 @@ namespace BasicStore.Sales.Data
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoItem> PedidoItems { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
-
 
         public async Task<bool> Commit()
         {

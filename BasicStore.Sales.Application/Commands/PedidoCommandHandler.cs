@@ -1,6 +1,7 @@
 ﻿using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.Messages;
 using BasicStore.Core.Messages.Common.Notifications;
+using BasicStore.Sales.Application.Events;
 using BasicStore.Sales.Domain;
 using MediatR;
 
@@ -30,7 +31,7 @@ namespace BasicStore.Sales.Application.Commands
                 pedido.AdicionarItem(pedidoItem);
 
                 _pedidoRepository.Adicionar(pedido);
-                //pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClienteId, message.ProdutoId));
+                pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClienteId, message.ProdutoId));
             }
             else
             {
@@ -46,11 +47,10 @@ namespace BasicStore.Sales.Application.Commands
                     _pedidoRepository.AdicionarItem(pedidoItem);
                 }
 
-                //pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
+                pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
             }
-
-
-            //pedido.AdicionarEvento(new PedidoItemAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.Nome, message.ValorUnitario, message.Quantidade));
+            
+            pedido.AdicionarEvento(new PedidoItemAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.Nome, message.ValorUnitario, message.Quantidade));
             return await _pedidoRepository.UnitOfWork.Commit();
         }
 

@@ -14,6 +14,22 @@ namespace BasicStore.Core.DomainObjects
         {
             Id = Guid.NewGuid();
         }
+        
+        public void AdicionarEvento(Event evento)
+        {
+            _notificacoes = _notificacoes ?? new List<Event>();
+            _notificacoes.Add(evento);
+        }
+
+        public void RemoverEvento(Event eventItem)
+        {
+            _notificacoes?.Remove(eventItem);
+        }
+
+        public void LimparEventos()
+        {
+            _notificacoes?.Clear();
+        }
 
         // enforcing the validation by id
         public override bool Equals(object? obj)
@@ -56,12 +72,6 @@ namespace BasicStore.Core.DomainObjects
         public virtual bool EhValido()
         {
             throw new NotImplementedException();
-        }
-
-
-        public void LimparEventos()
-        {
-            _notificacoes?.Clear();
         }
     }
 }
