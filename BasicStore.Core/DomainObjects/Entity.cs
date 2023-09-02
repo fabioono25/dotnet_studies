@@ -14,7 +14,7 @@ namespace BasicStore.Core.DomainObjects
         {
             Id = Guid.NewGuid();
         }
-        
+
         public void AdicionarEvento(Event evento)
         {
             _notificacoes = _notificacoes ?? new List<Event>();

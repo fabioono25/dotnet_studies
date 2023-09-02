@@ -1,14 +1,8 @@
-﻿using BasicStore.Core.Data;
+﻿using BasicStore.Core.Communication.Mediator;
+using BasicStore.Core.Data;
 using BasicStore.Core.Messages;
 using BasicStore.Sales.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BasicStore.Core.Communication.Mediator;
 
 namespace BasicStore.Sales.Data
 {

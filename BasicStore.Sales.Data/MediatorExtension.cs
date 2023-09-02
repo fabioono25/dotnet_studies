@@ -1,10 +1,5 @@
 ﻿using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicStore.Sales.Data
 {
@@ -24,7 +19,8 @@ namespace BasicStore.Sales.Data
                 .ForEach(entity => entity.Entity.LimparEventos());
 
             var tasks = domainEvents
-                .Select(async (domainEvent) => {
+                .Select(async (domainEvent) =>
+                {
                     await mediator.PublishEvent(domainEvent);
                 });
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Core.Communication.Mediator;
+﻿using BasicStore.Core.Communication.Mediator;
 using MediatR;
 
 namespace BasicStore.Sales.Application.Events
@@ -12,9 +7,9 @@ namespace BasicStore.Sales.Application.Events
         INotificationHandler<PedidoRascunhoIniciadoEvent>,
         INotificationHandler<PedidoAtualizadoEvent>,
         INotificationHandler<PedidoItemAdicionadoEvent>
-        //INotificationHandler<PedidoEstoqueRejeitadoEvent>,
-        //INotificationHandler<PagamentoRealizadoEvent>,
-        //INotificationHandler<PagamentoRecusadoEvent>
+    //INotificationHandler<PedidoEstoqueRejeitadoEvent>,
+    //INotificationHandler<PagamentoRealizadoEvent>,
+    //INotificationHandler<PagamentoRecusadoEvent>
     {
 
         private readonly IMediatorHandler _mediatorHandler;
