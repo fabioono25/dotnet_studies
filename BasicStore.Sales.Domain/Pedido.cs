@@ -1,4 +1,5 @@
 ﻿using BasicStore.Core.DomainObjects;
+using FluentValidation.Results;
 
 namespace BasicStore.Sales.Domain
 {
@@ -36,11 +37,16 @@ namespace BasicStore.Sales.Domain
             _pedidoItems = new List<PedidoItem>();
         }
 
-        public void AplicarVoucher(Voucher voucher)
+        public ValidationResult AplicarVoucher(Voucher voucher)
         {
+            var validationResult = voucher.ValidarSeAplicavel();
+            if (!validationResult.IsValid) return validationResult;
+
             Voucher = voucher;
             VoucherUtilizado = true;
             CalcularValorPedido();
+
+            return validationResult;
         }
 
         public void CalcularValorPedido()
