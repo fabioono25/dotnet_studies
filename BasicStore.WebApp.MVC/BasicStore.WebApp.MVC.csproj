@@ -30,6 +30,9 @@
   <ItemGroup>
     <ProjectReference Include="..\BasicStore.Catalog.Application\BasicStore.Catalog.Application.csproj" />
     <ProjectReference Include="..\BasicStore.Core\BasicStore.Core.csproj" />
+    <ProjectReference Include="..\BasicStore.Pagamentos.AntiCorruption\BasicStore.Pagamentos.AntiCorruption.csproj" />
+    <ProjectReference Include="..\BasicStore.Pagamentos.Business\BasicStore.Pagamentos.Business.csproj" />
+    <ProjectReference Include="..\BasicStore.Pagamentos.Data\BasicStore.Pagamentos.Data.csproj" />
     <ProjectReference Include="..\BasicStore.Sales.Application\BasicStore.Sales.Application.csproj" />
     <ProjectReference Include="..\BasicStore.Sales.Data\BasicStore.Sales.Data.csproj" />
     <ProjectReference Include="..\StoreDDD.Catalog.Data\BasicStore.Catalog.Data.csproj" />

@@ -64,11 +64,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStore.Catalog.Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStore.WebApp.MVC", "BasicStore.WebApp.MVC\BasicStore.WebApp.MVC.csproj", "{15C171B4-FFBC-462A-B40E-E2C226A6CA84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Sales.Domain", "BasicStore.Sales.Domain\BasicStore.Sales.Domain.csproj", "{683CEF26-5A1B-4387-87FC-43D027267C20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStore.Sales.Domain", "BasicStore.Sales.Domain\BasicStore.Sales.Domain.csproj", "{683CEF26-5A1B-4387-87FC-43D027267C20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Sales.Application", "BasicStore.Sales.Application\BasicStore.Sales.Application.csproj", "{FDDF43C6-F42D-4F6A-8236-3EA03BE28E54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStore.Sales.Application", "BasicStore.Sales.Application\BasicStore.Sales.Application.csproj", "{FDDF43C6-F42D-4F6A-8236-3EA03BE28E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Sales.Data", "BasicStore.Sales.Data\BasicStore.Sales.Data.csproj", "{F560B71E-F006-4397-964E-A786F057FA3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStore.Sales.Data", "BasicStore.Sales.Data\BasicStore.Sales.Data.csproj", "{F560B71E-F006-4397-964E-A786F057FA3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Pagamentos.AntiCorruption", "BasicStore.Pagamentos.AntiCorruption\BasicStore.Pagamentos.AntiCorruption.csproj", "{ADE71CDE-3E4D-426C-94D4-19E19453F688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Pagamentos.Business", "BasicStore.Pagamentos.Business\BasicStore.Pagamentos.Business.csproj", "{D057C8EA-3DE4-4290-B2DD-AD26770CAA19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicStore.Pagamentos.Data", "BasicStore.Pagamentos.Data\BasicStore.Pagamentos.Data.csproj", "{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,6 +158,18 @@ Global
 		{F560B71E-F006-4397-964E-A786F057FA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F560B71E-F006-4397-964E-A786F057FA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F560B71E-F006-4397-964E-A786F057FA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE71CDE-3E4D-426C-94D4-19E19453F688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE71CDE-3E4D-426C-94D4-19E19453F688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE71CDE-3E4D-426C-94D4-19E19453F688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE71CDE-3E4D-426C-94D4-19E19453F688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D057C8EA-3DE4-4290-B2DD-AD26770CAA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D057C8EA-3DE4-4290-B2DD-AD26770CAA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D057C8EA-3DE4-4290-B2DD-AD26770CAA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D057C8EA-3DE4-4290-B2DD-AD26770CAA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +198,9 @@ Global
 		{683CEF26-5A1B-4387-87FC-43D027267C20} = {BA1373FE-D6E4-40FA-8F86-E17AB4A22515}
 		{FDDF43C6-F42D-4F6A-8236-3EA03BE28E54} = {BA1373FE-D6E4-40FA-8F86-E17AB4A22515}
 		{F560B71E-F006-4397-964E-A786F057FA3E} = {BA1373FE-D6E4-40FA-8F86-E17AB4A22515}
+		{ADE71CDE-3E4D-426C-94D4-19E19453F688} = {329AD60B-9F06-4DAD-8D55-B955E5C736A0}
+		{D057C8EA-3DE4-4290-B2DD-AD26770CAA19} = {329AD60B-9F06-4DAD-8D55-B955E5C736A0}
+		{232074DE-D88D-4CF5-8A0E-68EEF26FC7DB} = {329AD60B-9F06-4DAD-8D55-B955E5C736A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A70AABB-6E9F-4904-8C38-B09CD59FACF8}

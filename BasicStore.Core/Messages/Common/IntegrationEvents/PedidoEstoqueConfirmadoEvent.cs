@@ -1,13 +1,14 @@
-﻿using System;
+﻿using BasicStore.Core.DomainObjects.DTO;
+using icStore.Core.Messages.Common.IntegrationEvents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BasicStore.Core.DomainObjects.DTO;
 
-namespace BasicStore.Sales.Application.Events
+namespace BasicStore.Core.Messages.Common.IntegrationEvents
 {
-    public class PedidoIniciadoEvent : IntegrationEvent
+    public class PedidoEstoqueConfirmadoEvent : IntegrationEvent
     {
         public Guid PedidoId { get; private set; }
         public Guid ClienteId { get; private set; }
@@ -18,13 +19,13 @@ namespace BasicStore.Sales.Application.Events
         public string ExpiracaoCartao { get; private set; }
         public string CvvCartao { get; private set; }
 
-        public PedidoIniciadoEvent(Guid pedidoId, Guid clienteId, ListaProdutosPedido itens, decimal total, string nomeCartao, string numeroCartao, string expiracaoCartao, string cvvCartao)
+        public PedidoEstoqueConfirmadoEvent(Guid pedidoId, Guid clienteId, decimal total, ListaProdutosPedido produtosPedido, string nomeCartao, string numeroCartao, string expiracaoCartao, string cvvCartao)
         {
             AggregateId = pedidoId;
             PedidoId = pedidoId;
             ClienteId = clienteId;
-            ProdutosPedido = itens;
             Total = total;
+            ProdutosPedido = produtosPedido;
             NomeCartao = nomeCartao;
             NumeroCartao = numeroCartao;
             ExpiracaoCartao = expiracaoCartao;
