@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
-    <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>

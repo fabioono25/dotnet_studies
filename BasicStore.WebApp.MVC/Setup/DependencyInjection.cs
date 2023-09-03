@@ -7,6 +7,7 @@ using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.Messages.Common.Notifications;
 using BasicStore.Sales.Application.Commands;
 using BasicStore.Sales.Application.Events;
+using BasicStore.Sales.Application.Queries;
 using BasicStore.Sales.Data;
 using BasicStore.Sales.Data.Repository;
 using BasicStore.Sales.Domain;
@@ -34,6 +35,8 @@ namespace BasicStore.WebApp.MVC.Setup
 
             // Vendas
             services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
+
             services.AddScoped<VendasContext>();
 
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
