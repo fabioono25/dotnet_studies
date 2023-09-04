@@ -18,6 +18,7 @@ using BasicStore.Sales.Data;
 using BasicStore.Sales.Data.Repository;
 using BasicStore.Sales.Domain;
 using MediatR;
+using BasicStore.Core.Data.EventSourcing;
 using ConfigurationManager = BasicStore.Pagamentos.AntiCorruption.ConfigurationManager;
 
 namespace BasicStore.WebApp.MVC.Setup
@@ -39,6 +40,10 @@ namespace BasicStore.WebApp.MVC.Setup
             services.AddScoped<CatalogContext>();
 
             services.AddScoped<INotificationHandler<ProductBellowStockEvent>, ProductEventHandler>();
+
+            // Event Sourcing
+            //services.AddSingleton<IEventStoreService, EventStoreService>();
+            //services.AddSingleton<IEventSourcingRepository, EventSourcingRepository>();
 
             // Vendas
             services.AddScoped<IPedidoRepository, PedidoRepository>();

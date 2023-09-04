@@ -1,12 +1,16 @@
 ﻿using BasicStore.Core.Messages;
+using MediatR;
 
 namespace BasicStore.Core.DomainObjects
 {
-    public class DomainEvent : Event
+    public abstract class DomainEvent : Message, INotification
     {
-        public DomainEvent(Guid aggregateId)
+        public DateTime Timestamp { get; private set; }
+
+        protected DomainEvent(Guid aggregateId)
         {
             AggregateId = aggregateId;
+            Timestamp = DateTime.Now;
         }
     }
 }

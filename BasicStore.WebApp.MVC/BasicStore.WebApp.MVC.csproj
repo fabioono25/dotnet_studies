@@ -16,6 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Eventos\Index.cshtml" />
+    <None Include="Views\Pedido\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
