@@ -90,6 +90,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventSourcing", "..\aspnetstudies\ModelagemDominiosRicos\039E27E4-F88B-4013-A59C-8B0DF8FE9C64-04 - Projeto NerdStore Completo\src\EventSourcing\EventSourcing.csproj", "{8FC73080-EA31-4FBE-805B-7F2D7A994054}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinAPI", "MinAPI\MinAPI.csproj", "{657F1863-CF29-4034-AA45-CFE36037B561}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -204,6 +206,10 @@ Global
 		{8FC73080-EA31-4FBE-805B-7F2D7A994054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC73080-EA31-4FBE-805B-7F2D7A994054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC73080-EA31-4FBE-805B-7F2D7A994054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{657F1863-CF29-4034-AA45-CFE36037B561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657F1863-CF29-4034-AA45-CFE36037B561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657F1863-CF29-4034-AA45-CFE36037B561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657F1863-CF29-4034-AA45-CFE36037B561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
