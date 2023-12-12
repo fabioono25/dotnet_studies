@@ -1,6 +1,8 @@
+using AutoMapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using MinAPI.data;
+using MinAPI.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,7 @@ sqlConnBuilder.Password = builder.Configuration["Password"];
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(sqlConnBuilder.ConnectionString));
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetType());
 
 var app = builder.Build();
 
@@ -25,5 +27,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapGet("api/v1/commands", async (ICommandRepo repo, IMapper mapper) =>
+{
+    var commands = await repo.GetAllCommands();
+
+    return Results.Ok(mapper.Map<IEnumerable<CommandReadDto>>(commands));
+});  
 
 app.Run();
