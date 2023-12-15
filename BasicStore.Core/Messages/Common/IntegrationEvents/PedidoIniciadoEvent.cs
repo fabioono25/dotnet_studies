@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BasicStore.Core.DomainObjects.DTO;
+﻿using BasicStore.Core.DomainObjects.DTO;
 
 namespace icStore.Core.Messages.Common.IntegrationEvents
 {

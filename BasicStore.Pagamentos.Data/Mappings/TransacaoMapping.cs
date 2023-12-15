@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BasicStore.Pagamentos.Business;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using BasicStore.Pagamentos.Business;
 
 namespace BasicStore.Pagamentos.Data.Mappings
 {

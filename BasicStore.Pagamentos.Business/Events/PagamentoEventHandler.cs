@@ -1,11 +1,6 @@
 ﻿using BasicStore.Core.DomainObjects.DTO;
 using BasicStore.Core.Messages.Common.IntegrationEvents;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicStore.Pagamentos.Business.Events
 {

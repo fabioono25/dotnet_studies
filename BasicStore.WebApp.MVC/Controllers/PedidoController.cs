@@ -1,9 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using BasicStore.Core.Communication.Mediator;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using BasicStore.Core.Communication.Mediator;
-using BasicStore.Core.Messages.CommonMessages.Notifications;
-using BasicStore.Vendas.Application.Queries;
 
 namespace BasicStore.WebApp.MVC.Controllers
 {

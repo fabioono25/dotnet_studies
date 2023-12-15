@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using BasicStore.Core.Messages;
-using BasicStore.Core.Messages;
+﻿using BasicStore.Core.Messages;
 
 namespace BasicStore.Core.Data.EventSourcing
 {

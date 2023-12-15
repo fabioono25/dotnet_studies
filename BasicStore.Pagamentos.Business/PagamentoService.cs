@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using BasicStore.Core.Communication.Mediator;
+﻿using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.DomainObjects.DTO;
 using BasicStore.Core.Messages.Common.IntegrationEvents;
 using BasicStore.Core.Messages.Common.Notifications;

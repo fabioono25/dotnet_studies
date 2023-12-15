@@ -1,5 +1,4 @@
 ﻿using BasicStore.Core.DomainObjects;
-using System;
 
 namespace BasicStore.Pagamentos.Business
 {

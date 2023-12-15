@@ -18,7 +18,6 @@ using BasicStore.Sales.Data;
 using BasicStore.Sales.Data.Repository;
 using BasicStore.Sales.Domain;
 using MediatR;
-using BasicStore.Core.Data.EventSourcing;
 using ConfigurationManager = BasicStore.Pagamentos.AntiCorruption.ConfigurationManager;
 
 namespace BasicStore.WebApp.MVC.Setup

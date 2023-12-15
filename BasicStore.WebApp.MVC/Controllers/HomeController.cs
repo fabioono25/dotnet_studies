@@ -1,6 +1,6 @@
-﻿using BasicStore.WebApp.MVC.Models;
+﻿using System.Diagnostics;
+using BasicStore.WebApp.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace BasicStore.WebApp.MVC.Controllers
 {

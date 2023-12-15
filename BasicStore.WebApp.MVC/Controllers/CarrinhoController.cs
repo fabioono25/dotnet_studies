@@ -2,8 +2,8 @@
 using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.Messages.Common.Notifications;
 using BasicStore.Sales.Application.Commands;
-using BasicStore.Sales.Application.Queries.ViewModels;
 using BasicStore.Sales.Application.Queries;
+using BasicStore.Sales.Application.Queries.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

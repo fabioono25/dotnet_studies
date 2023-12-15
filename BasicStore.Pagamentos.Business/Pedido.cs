@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BasicStore.Pagamentos.Business
+﻿namespace BasicStore.Pagamentos.Business
 {
     public class Pedido
     {

@@ -1,8 +1,4 @@
-﻿using BasicStore.Core.Messages;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BasicStore.Core.DomainObjects;
+﻿using BasicStore.Core.DomainObjects;
 using BasicStore.Pagamentos.Data;
 
 namespace BasicStore.Core.Communication.Mediator

@@ -1,8 +1,8 @@
-﻿using BasicStore.Core.DomainObjects;
+﻿using BasicStore.Core.Data.EventSourcing;
+using BasicStore.Core.DomainObjects;
 using BasicStore.Core.Messages;
 using BasicStore.Core.Messages.Common.Notifications;
 using MediatR;
-using BasicStore.Core.Data.EventSourcing;
 
 namespace BasicStore.Core.Communication.Mediator
 {

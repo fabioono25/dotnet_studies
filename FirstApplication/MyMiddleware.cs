@@ -1,5 +1,5 @@
-﻿using Serilog;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Serilog;
 
 namespace AppTestOne
 {

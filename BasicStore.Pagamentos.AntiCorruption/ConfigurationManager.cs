@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace BasicStore.Pagamentos.AntiCorruption
+﻿namespace BasicStore.Pagamentos.AntiCorruption
 {
     public class ConfigurationManager : IConfigurationManager
     {

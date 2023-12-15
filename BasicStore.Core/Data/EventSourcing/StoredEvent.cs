@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BasicStore.Core.Data.EventSourcing
+﻿namespace BasicStore.Core.Data.EventSourcing
 {
     public class StoredEvent
     {

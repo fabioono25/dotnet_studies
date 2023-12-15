@@ -1,12 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BasicStore.Core.Communication.Mediator;
+﻿using BasicStore.Core.Communication.Mediator;
 using BasicStore.Core.Data;
-using BasicStore.Core.DomainObjects;
 using BasicStore.Core.Messages;
 using BasicStore.Pagamentos.Business;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasicStore.Pagamentos.Data

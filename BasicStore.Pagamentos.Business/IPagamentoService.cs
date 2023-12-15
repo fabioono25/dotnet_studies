@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using BasicStore.Core.DomainObjects.DTO;
+﻿using BasicStore.Core.DomainObjects.DTO;
 
 namespace BasicStore.Pagamentos.Business
 {

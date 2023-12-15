@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using BasicStore.Core.Data.EventSourcing;
 using Microsoft.AspNetCore.Mvc;
-using BasicStore.Core.Data.EventSourcing;
 
 namespace BasicStore.WebApp.MVC.Controllers
 {
