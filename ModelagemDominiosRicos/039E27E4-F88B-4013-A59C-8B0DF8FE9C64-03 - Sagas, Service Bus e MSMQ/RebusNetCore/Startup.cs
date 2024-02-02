@@ -1,10 +1,6 @@
 ﻿using Core.Messages;
 using Core.Messages.IntegrationEvents;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Pagamento;
 using Pagamento.Commands;
 using Pedido;
@@ -13,7 +9,6 @@ using Rebus.Config;
 using Rebus.Persistence.InMem;
 using Rebus.Routing.TypeBased;
 using Rebus.ServiceProvider;
-using Rebus.Transport.InMem;
 
 namespace RebusNetCore
 {

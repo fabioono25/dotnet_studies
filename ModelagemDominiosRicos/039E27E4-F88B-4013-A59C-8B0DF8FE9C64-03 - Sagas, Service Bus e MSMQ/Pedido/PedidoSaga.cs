@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Core.Messages.IntegrationEvents;
+﻿using Core.Messages.IntegrationEvents;
 using Pedido.Commands;
 using Rebus.Bus;
 using Rebus.Handlers;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Core.Messages.IntegrationEvents;
+﻿using Core.Messages.IntegrationEvents;
 using Rebus.Handlers;
 
 namespace Pedido

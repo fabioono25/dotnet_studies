@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-namespace RebusNetCore.Data
+﻿namespace RebusNetCore.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

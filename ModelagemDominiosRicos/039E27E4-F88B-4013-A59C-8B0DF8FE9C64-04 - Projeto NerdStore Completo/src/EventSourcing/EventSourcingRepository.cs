@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EventStore.ClientAPI;
-using BasicStore.Core.Data.EventSourcing;
-using BasicStore.Core.Messages;
 using Newtonsoft.Json;
 
 namespace EventSourcing

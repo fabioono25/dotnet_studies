@@ -1,8 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace RebusNetCore.Data.Migrations
+﻿namespace RebusNetCore.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
