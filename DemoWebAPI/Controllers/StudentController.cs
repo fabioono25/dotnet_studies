@@ -1,11 +1,42 @@
 ﻿using DemoWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DemoWebAPI.Controllers
 {
     [ApiController]
+    public abstract class MainController : ControllerBase
+    {
+        public bool ValidOperation()
+        {
+            return true;
+        }
+
+        // create a customized actionresult
+        protected ActionResult CustomResponse(object result = null)
+        {
+            if (ValidOperation())
+            {
+                return Ok(new { success = true, data = result });
+            }
+
+            //return BadRequest(new ValidationProblemDetails(new ModelStateDictionary(ModelState)));
+            return BadRequest(new
+            {
+                success = false,
+                errors = new[] { GetErrorMessages() }
+            }); 
+        }
+        
+        protected string GetErrorMessages()
+        {
+            return "An error occurred";
+        }
+    }   
+
+    [ApiController]
     [Route("[controller]")]
-    public class StudentController : ControllerBase
+    public class StudentController : MainController
     {
 
         [HttpGet(Name = "students")]
@@ -27,11 +58,13 @@ namespace DemoWebAPI.Controllers
         {
             if (id == 1)
             {
-                return new Student { Id = id, Name = "Jane" };
+                return CustomResponse(new Student { Id = id, Name = "Jane" });
+                //return new Student { Id = id, Name = "Jane" };
             }
             else
             {
-                return NotFound();
+                //return NotFound();
+                return CustomResponse();
             }
         }
 
