@@ -32,11 +32,12 @@ namespace DemoWebAPI.Controllers
         {
             return "An error occurred";
         }
-    }   
+    }
 
     [ApiController]
+    [ApiConventionType(typeof(DefaultApiConventions))] // apply default api conventions to all actions in this controller. It control the response status code
     [Route("[controller]")]
-    public class StudentController : MainController
+    public class StudentController : ControllerBase
     {
 
         [HttpGet(Name = "students")]
@@ -56,21 +57,27 @@ namespace DemoWebAPI.Controllers
         [HttpGet("{id}", Name = "student")]
         public ActionResult<Student> Get(int id)
         {
+            if (id < 0)
+            {
+                return BadRequest();
+            }
+
             if (id == 1)
             {
-                return CustomResponse(new Student { Id = id, Name = "Jane" });
-                //return new Student { Id = id, Name = "Jane" };
+                //return CustomResponse(new Student { Id = id, Name = "Jane" });
+                return new Student { Id = id, Name = "Jane" };
             }
             else
             {
-                //return NotFound();
-                return CustomResponse();
+                return NotFound();
+                //return CustomResponse();
             }
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(Student), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType] // if no other response type is specified, this will be used
         public ActionResult<Student> Post(Student student)
         {
             if (student.Id == 1)
@@ -84,16 +91,28 @@ namespace DemoWebAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Put))]
         public ActionResult<Student> Put(int id, Student student)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id != student.Id)
             {
-                return BadRequest();
+                return NotFound();
             }
-            else
-            {
-                return Ok(student);
-            }
+
+            //if (id != student.Id)
+            //{
+            //    return BadRequest();
+            //}
+            //else
+            //{
+            //    return Ok(student);
+            //}
+            return Ok(student);
         }
 
         [HttpDelete("{id}")]
