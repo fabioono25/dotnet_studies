@@ -8,6 +8,10 @@ namespace DevIO.Api.Controllers
     [ApiController]
     public abstract class MainController : ControllerBase
     {
+        // notifications
+        // ModelState
+        // Business Operation
+
         private readonly INotificador _notificador;
         public readonly IUser AppUser;
 
