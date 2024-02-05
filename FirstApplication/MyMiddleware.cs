@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using Serilog;
 
 namespace AppTestOne
@@ -45,7 +44,7 @@ namespace AppTestOne
             sw.Stop();
 
             Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-            Log.Information($"The execution last {sw.Elapsed.TotalMilliseconds} ms ({sw.Elapsed.TotalSeconds} seconds)");   
+            Log.Information($"The execution last {sw.Elapsed.TotalMilliseconds} ms ({sw.Elapsed.TotalSeconds} seconds)");
         }
     }
 
