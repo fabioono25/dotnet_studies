@@ -39,5 +39,10 @@ namespace BasicStore.Core.Communication.Mediator
         {
             await _mediator.Publish(notificacao);
         }
+
+        public Task PublishEvent(ProductBellowStockEvent productBellowStockEvent)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

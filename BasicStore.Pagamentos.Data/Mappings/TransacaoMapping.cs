@@ -10,7 +10,7 @@ namespace BasicStore.Pagamentos.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
-            builder.ToTable("Transacoes");
+            //builder.ToTable("Transacoes");
         }
     }
 }

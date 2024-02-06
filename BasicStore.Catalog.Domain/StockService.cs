@@ -29,7 +29,7 @@ namespace BasicStore.Catalog.Domain
             // TODO: Parametrizar a quantidade de estoque baixo
             if (product.QuantityStock < 10)
             {
-                await _mediatorHandler.PublishEvent(new ProductBellowStockEvent(product.Id, product.QuantityStock));
+                // await _mediatorHandler.PublishEvent(new ProductBellowStockEvent(product.Id, product.QuantityStock));
             }
 
             _productRepository.Update(product);
@@ -71,6 +71,11 @@ namespace BasicStore.Catalog.Domain
             if (!sucesso) return false;
 
             return await _productRepository.UnitOfWork.Commit();
+        }
+
+        public Task<bool> ReporListaProdutosPedido(ListaProdutosPedido lista)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task<bool> ReporItemEstoque(Guid produtoId, int quantidade)

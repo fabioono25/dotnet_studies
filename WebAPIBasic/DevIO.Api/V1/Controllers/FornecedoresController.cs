@@ -36,6 +36,7 @@ namespace DevIO.Api.V1.Controllers
         [HttpGet]
         public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
+            // status 200 is implicit... it could be generated explicitly via Ok() or Ok(result)
             return _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
         }
 

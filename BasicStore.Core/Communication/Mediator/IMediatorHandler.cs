@@ -10,5 +10,10 @@ namespace BasicStore.Core.Communication.Mediator
         Task<bool> EnviarComando<T>(T comando) where T : Command;
         Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification;
         Task PublicarDomainEvent<T>(T notificacao) where T : DomainEvent;
+        Task PublishEvent(ProductBellowStockEvent productBellowStockEvent);
+    }
+
+    public class ProductBellowStockEvent
+    {
     }
 }

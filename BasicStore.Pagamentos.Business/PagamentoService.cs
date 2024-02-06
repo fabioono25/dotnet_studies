@@ -52,7 +52,7 @@ namespace BasicStore.Pagamentos.Business
             }
 
             await _mediatorHandler.PublicarNotificacao(new DomainNotification("pagamento","A operadora recusou o pagamento"));
-            await _mediatorHandler.PublishEvent(new PagamentoRecusadoEvent(pedido.Id, pagamentoPedido.ClienteId, transacao.PagamentoId, transacao.Id, pedido.Valor));
+            //await _mediatorHandler.PublishEvent(new PagamentoRecusadoEvent(pedido.Id, pagamentoPedido.ClienteId, transacao.PagamentoId, transacao.Id, pedido.Valor));
 
             return transacao;
         }

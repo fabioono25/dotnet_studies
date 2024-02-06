@@ -29,14 +29,14 @@ namespace BasicStore.Catalog.Domain.Events
         {
             var result = await _estoqueService.DebitarListaProdutosPedido(message.ProdutosPedido);
 
-            if (result)
-            {
-                await _mediatorHandler.PublishEvent(new PedidoEstoqueConfirmadoEvent(message.PedidoId, message.ClienteId, message.Total, message.ProdutosPedido, message.NomeCartao, message.NumeroCartao, message.ExpiracaoCartao, message.CvvCartao));
-            }
-            else
-            {
-                await _mediatorHandler.PublishEvent(new PedidoEstoqueRejeitadoEvent(message.PedidoId, message.ClienteId));
-            }
+            //if (result)
+            //{
+            //    await _mediatorHandler.PublishEvent(new PedidoEstoqueConfirmadoEvent(message.PedidoId, message.ClienteId, message.Total, message.ProdutosPedido, message.NomeCartao, message.NumeroCartao, message.ExpiracaoCartao, message.CvvCartao));
+            //}
+            //else
+            //{
+            //    await _mediatorHandler.PublishEvent(new PedidoEstoqueRejeitadoEvent(message.PedidoId, message.ClienteId));
+            //}
         }
         
         // devolucao para o estoque
