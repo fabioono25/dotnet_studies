@@ -88,10 +88,15 @@ namespace DevIO.Api.V1.Controllers
             var claims = await _userManager.GetClaimsAsync(user);
             var userRoles = await _userManager.GetRolesAsync(user);
 
+            // JwtRegisteredClaimNames.Sub: JWT Subject. Meaning: the principal that is the subject of the JWT
             claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
+            // JwtRegisteredClaimNames.Email: JWT Email. Meaning: the email of the principal that is the subject of the JWT
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
+            // JwtRegisteredClaimNames.Jti: JWT ID. Meaning: a unique identifier for the token
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
+            // JwtRegisteredClaimNames.Nbf: Not Before. Meaning: the token is not valid before this date
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
+            // JwtRegisteredClaimNames.Iat: Issued At. Meaning: the token was issued at this date
             claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.Integer64));
             foreach (var userRole in userRoles)
             {

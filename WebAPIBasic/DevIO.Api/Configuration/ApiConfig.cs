@@ -26,6 +26,8 @@ namespace DevIO.Api.Configuration
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
+                // objective: to remove the default behavior of the ModelStateInvalidFilter
+                // why: to use the custom ExceptionMiddleware. The ModelStateInvalidFilter is a built-in filter that returns a 400 Bad Request response when the model state is invalid.
                 options.SuppressModelStateInvalidFilter = true;
 
             });
