@@ -54,6 +54,12 @@ namespace DevIO.Api.V1.Controllers
         [HttpPost]
         public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
+            if (UsuarioAutenticado)
+            {
+                var userName = AppUser.Name;
+                Console.WriteLine(userName);
+            }
+            
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));
