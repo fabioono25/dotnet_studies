@@ -1,6 +1,6 @@
-﻿using DevIO.Api.ViewModels;
+﻿using System.Text.Json;
+using DevIO.Api.ViewModels;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Text.Json;
 
 namespace DevIO.Api.Extensions
 {

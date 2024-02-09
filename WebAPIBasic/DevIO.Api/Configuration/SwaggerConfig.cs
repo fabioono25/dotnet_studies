@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Text.Json;
 
 namespace DevIO.Api.Configuration
 {

@@ -1,5 +1,5 @@
-﻿using DevIO.Business.Intefaces;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using DevIO.Business.Intefaces;
 
 namespace DevIO.Api.Extensions
 {

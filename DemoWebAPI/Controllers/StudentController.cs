@@ -1,6 +1,5 @@
 ﻿using DemoWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DemoWebAPI.Controllers
 {
