@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DevIO.Api.ActionResult;
 using DevIO.Api.Controllers;
 using DevIO.Api.Extensions;
 using DevIO.Api.ViewModels;
@@ -38,6 +39,14 @@ namespace DevIO.Api.V1.Controllers
         {
             // status 200 is implicit... it could be generated explicitly via Ok() or Ok(result)
             return _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
+        }
+
+        // Example of a custom ActionResult. It's a CSV file with the data from the Fornecedores table
+        [HttpGet("csv")]
+        public async Task<IActionResult> ObterTodosCsv()
+        {
+            var fornecedores = _mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos());
+            return new CsvActionResult<FornecedorViewModel>(fornecedores);
         }
 
         [HttpGet("{id:guid}")]

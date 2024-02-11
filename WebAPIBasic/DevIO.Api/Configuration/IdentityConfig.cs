@@ -49,6 +49,22 @@ namespace DevIO.Api.Configuration
                 };
             });
 
+            //// add a claim to the user
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("PodeExcluir", policy => policy.RequireClaim("PodeExcluir"));
+            //    options.AddPolicy("PodeLer", policy => policy.RequireClaim("PodeLer"));
+            //    options.AddPolicy("PodeGravar", policy => policy.RequireClaim("PodeGravar"));
+            //});
+
+            //// add a role to the user
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("PodeExcluir", policy => policy.RequireRole("Admin"));
+            //    options.AddPolicy("PodeLer", policy => policy.RequireRole("Admin", "Gerente"));
+            //    options.AddPolicy("PodeGravar", policy => policy.RequireRole("Admin"));
+            //});
+
             return services;
         }
     }

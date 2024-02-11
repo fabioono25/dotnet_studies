@@ -36,7 +36,7 @@ namespace DevIO.Api.Controllers
             return !_notificador.TemNotificacao();
         }
 
-        protected ActionResult CustomResponse(object result = null)
+        protected Microsoft.AspNetCore.Mvc.ActionResult CustomResponse(object result = null)
         {
             if (OperacaoValida())
             {
@@ -54,7 +54,7 @@ namespace DevIO.Api.Controllers
             });
         }
 
-        protected ActionResult CustomResponse(ModelStateDictionary modelState)
+        protected Microsoft.AspNetCore.Mvc.ActionResult CustomResponse(ModelStateDictionary modelState)
         {
             if(!modelState.IsValid) NotificarErroModelInvalida(modelState);
             return CustomResponse();
