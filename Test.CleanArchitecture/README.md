@@ -27,6 +27,7 @@ By default the site uses HTTPS and expects you to have a self-signed developer c
 ## Table Of Contents
 
 - [Clean Architecture](#clean-architecture)
+  - [Take the Course!](#take-the-course)
   - [Troubleshooting Chrome Errors](#troubleshooting-chrome-errors)
   - [Table Of Contents](#table-of-contents)
   - [Give a Star! :star:](#give-a-star-star)
@@ -291,3 +292,4 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 - [SharedKernel](https://github.com/ardalis/Ardalis.SharedKernel)
 - [SmartEnum](https://github.com/ardalis/SmartEnum)
 - [Specification](https://github.com/ardalis/specification)
+- [FastEndpoints] (https://github.com/FastEndpoints/FastEndpoints)
