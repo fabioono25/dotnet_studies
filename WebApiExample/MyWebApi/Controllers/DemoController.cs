@@ -5,6 +5,7 @@ namespace MyWebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Route("api/[controller]")] // possible - not recommended
 public class DemoController : ControllerBase
 {
     private readonly IDemoService _demoService;

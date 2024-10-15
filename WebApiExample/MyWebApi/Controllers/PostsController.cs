@@ -14,7 +14,7 @@ namespace MyApp.Namespace
         //     _postsService = postService;
         // }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int:range(1, 100)}")]
         public async Task<ActionResult<Post>> GetPost(int id)
         {
             // var post = await _postsService.GetPost(id);
