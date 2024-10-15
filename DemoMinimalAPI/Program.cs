@@ -1,4 +1,5 @@
 using DemoMinimalAPI;
+using DemoMinimalAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IPostService, PostService>();
 
 var app = builder.Build();
 
@@ -37,6 +40,12 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.MapGet("/posts", async (IPostService postService) =>
+{
+    var post = await postService.GetPost(1);
+    return Results.Ok(post);
+}).WithName("GetPost").WithOpenApi().WithTags("Posts");
 
 app.Run();
 

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWebApi.Models;
 using MyWebApi.Services;
@@ -7,18 +6,19 @@ namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostsController : ControllerBase
+    public class PostsController(IPostService postService) : ControllerBase
     {
-        private readonly PostsService _postsService;
-        public PostsController()
-        {
-            _postsService = new PostsService(); // TODO: Use dependency injection, because this is bad practice.
-        }
+        // private readonly IPostService _postsService;
+        // public PostsController(IPostService postService)
+        // {
+        //     _postsService = postService;
+        // }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Post>> GetPost(int id)
         {
-            var post = await _postsService.GetPost(id);
+            // var post = await _postsService.GetPost(id);
+            var post = await postService.GetPost(id);
             if (post == null)
             {
                 return NotFound();
@@ -29,7 +29,7 @@ namespace MyApp.Namespace
         [HttpPost]
         public async Task<ActionResult<Post>> CreatePost(Post post)
         {
-            await _postsService.CreatePost(post);
+            await postService.CreatePost(post);
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
         }
 
@@ -40,7 +40,7 @@ namespace MyApp.Namespace
             {
                 return BadRequest();
             }
-            var updatedPost = await _postsService.UpdatePost(id, post);
+            var updatedPost = await postService.UpdatePost(id, post);
             if (updatedPost == null)
             {
                 return NotFound();

@@ -2,7 +2,7 @@ using MyWebApi.Models;
 
 namespace MyWebApi.Services
 {
-    public class PostsService
+    public class PostsService : IPostService
     {
         private static readonly List<Post> AllPosts = new();
         public Task CreatePost(Post item)
