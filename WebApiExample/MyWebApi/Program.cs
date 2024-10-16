@@ -1,8 +1,24 @@
 using System.Text.RegularExpressions;
 using MyWebApi;
 using MyWebApi.Services;
+using Serilog;
+using Serilog.Formatting.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Working with logs
+builder.Logging.ClearProviders();
+
+// builder.Logging.AddConsole();
+// builder.Logging.AddDebug();
+// builder.Logging.AddEventLog(); // Window event log
+
+// logging to a file, using Serilog
+var logger = new LoggerConfiguration()
+    .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs/log.txt"), rollingInterval: RollingInterval.Day, retainedFileCountLimit: 90)
+    .WriteTo.Console(new JsonFormatter())
+    .CreateLogger();
+builder.Logging.AddSerilog(logger);
 
 // Add services to the container.
 builder.Services.AddScoped<IPostService, PostsService>();
