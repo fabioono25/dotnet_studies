@@ -38,6 +38,10 @@ builder.Services.AddConfig(builder.Configuration);
 
 var app = builder.Build();
 
+// read the environment variable ASPNETCORE_ENVIRONMENT
+var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+Console.WriteLine($"ASPNETCORE_ENVIRONMENT: {env}");
+
 // Resolving a service inside app (when it starts)
 using var serviceScope = app.Services.CreateScope();
 var services = serviceScope.ServiceProvider;
@@ -46,7 +50,7 @@ var message = demoService.SayHello();
 Console.WriteLine(message);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
