@@ -54,6 +54,79 @@ builder.Services.AddConfig(builder.Configuration);
 
 var app = builder.Build();
 
+// Working with the middleware
+app.Use(async (context, next) =>
+{
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogInformation($"Request Host: {context.Request.Host}");
+    logger.LogInformation("My Middleware - Before");
+    await next(context);
+    logger.LogInformation("My Middleware - After");
+    logger.LogInformation($"Response StatusCode: {context.Response.StatusCode}");
+}); // middleware
+
+// This is an example showing how to combine multiple middleware components into a single middleware component.
+// app.Map("/lottery", app =>
+// {
+//     var random = new Random();
+//     var luckyNumber = random.Next(1, 6);
+//     app.UseWhen(context => context.Request.QueryString.Value == $"?{luckyNumber.ToString()}", app =>
+//     {
+//         app.Run(async context =>
+//         {
+//             await context.Response.WriteAsync($"You win! You got the lucky number {luckyNumber}!");
+//         });
+//     });
+//     app.UseWhen(context => string.IsNullOrWhiteSpace(context.Request.QueryString.Value), app =>
+//     {
+//         app.Use(async (context, next) =>
+//         {
+//             var number = random.Next(1, 6);
+//             context.Request.Headers.TryAdd("number", number.ToString());
+//             await next(context);
+//         });
+//         app.MapWhen(context => context.Request.Headers["number"] == luckyNumber.ToString(), app =>
+//         {
+//             app.Run(async context =>
+//             {
+//                 await context.Response.WriteAsync($"You win! You got the lucky number {luckyNumber}!");
+//             });
+//         });
+//     });
+//     app.Run(async context =>
+//     {
+//         var number = "";
+//         if (context.Request.QueryString.HasValue)
+//         {
+//             number = context.Request.QueryString.Value?.Replace("?", "");
+//         }
+//         else
+//         {
+//             number = context.Request.Headers["number"];
+//         }
+//         await context.Response.WriteAsync($"Your number is {number}. Try again!");
+//     });
+// });
+// app.Run(async context =>
+// {
+//     await context.Response.WriteAsync($"Use the /lottery URL to play. You can choose your number with the format /lottery?1.");
+// });
+
+// one more example of UseWhen
+app.UseWhen(context => context.Request.Path.Equals("/weatherforecast"), app =>
+{
+    app.Use(async (context, next) =>
+    {
+        var logger = app.ApplicationServices.GetRequiredService<ILogger<Program>>();
+        logger.LogInformation($"From MapWhen(): Branch used = {context.Request.Query["branch"]}");
+        await next();
+    });
+    // app.Run(async context =>
+    // {
+    //     await context.Response.WriteAsync("Hello from the weather forecast! Middleware intercepted the request.");
+    // });
+});
+
 // read the environment variable ASPNETCORE_ENVIRONMENT
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 Console.WriteLine($"ASPNETCORE_ENVIRONMENT: {env}");
