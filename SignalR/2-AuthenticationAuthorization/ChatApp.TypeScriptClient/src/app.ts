@@ -27,12 +27,22 @@ const btnSend: HTMLButtonElement = document.getElementById(
   "btnSend"
 ) as HTMLButtonElement;
 
+const txtToGroup = document.getElementById("txtToGroup") as HTMLInputElement;
+const btnJoinGroup = document.getElementById(
+  "btnJoinGroup"
+) as HTMLButtonElement;
+const btnLeaveGroup = document.getElementById(
+  "btnLeaveGroup"
+) as HTMLButtonElement;
+
 const divChat: HTMLDivElement = document.getElementById(
   "divChat"
 ) as HTMLDivElement;
 
 divChat.style.display = "none";
 btnSend.disabled = true;
+btnLeaveGroup.disabled = true;
+btnLeaveGroup.style.display = "none";
 
 btnLogin.addEventListener("click", login);
 let connection: signalR.HubConnection = null;
@@ -72,6 +82,7 @@ async function login() {
         .build();
       connection.on("ReceiveMessage", (username: string, message: string) => {
         const li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
         li.textContent = `${username}: ${message}`;
         const messageList = document.getElementById("messages");
         messageList.appendChild(li);
@@ -80,6 +91,7 @@ async function login() {
 
       connection.on("UserConnected", (username: string) => {
         const li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
         li.textContent = `${username} connected`;
         const messageList = document.getElementById("messages");
         messageList.appendChild(li);
@@ -87,6 +99,7 @@ async function login() {
       });
       connection.on("UserDisconnected", (username: string) => {
         const li = document.createElement("li");
+        li.setAttribute("class", "list-group-item");
         li.textContent = `${username} disconnected`;
         const messageList = document.getElementById("messages");
         messageList.appendChild(li);
@@ -114,9 +127,24 @@ btnSend.addEventListener("click", sendMessage);
 
 function sendMessage() {
   // If the txtToUser field is not empty, send the message to the user
-  if (txtToUser.value) {
+  if (txtToGroup.value && txtToGroup.readOnly === true) {
     connection
-      .invoke("SendMessageToUser", lblUsername.textContent, txtToUser.value, txtMessage.value)
+      .invoke(
+        "SendMessageToGroup",
+        lblUsername.textContent,
+        txtToGroup.value,
+        txtMessage.value
+      )
+      .catch((err) => console.error(err.toString()))
+      .then(() => (txtMessage.value = ""));
+  } else if (txtToUser.value) {
+    connection
+      .invoke(
+        "SendMessageToUser",
+        lblUsername.textContent,
+        txtToUser.value,
+        txtMessage.value
+      )
       .catch((err) => console.error(err.toString()))
       .then(() => (txtMessage.value = ""));
   } else {
@@ -124,5 +152,38 @@ function sendMessage() {
       .invoke("SendMessage", lblUsername.textContent, txtMessage.value)
       .catch((err) => console.error(err.toString()))
       .then(() => (txtMessage.value = ""));
+  }
+}
+
+btnJoinGroup.addEventListener("click", joinGroup);
+btnLeaveGroup.addEventListener("click", leaveGroup);
+
+function joinGroup() {
+  if (txtToGroup.value) {
+    connection
+      .invoke("AddToGroup", lblUsername.textContent, txtToGroup.value)
+      .catch((err) => console.error(err.toString()))
+      .then(() => {
+        btnJoinGroup.disabled = true;
+        btnJoinGroup.style.display = "none";
+        btnLeaveGroup.disabled = false;
+        btnLeaveGroup.style.display = "inline";
+        txtToGroup.readOnly = true;
+      });
+  }
+}
+
+function leaveGroup() {
+  if (txtToGroup.value) {
+    connection
+      .invoke("RemoveFromGroup", lblUsername.textContent, txtToGroup.value)
+      .catch((err) => console.error(err.toString()))
+      .then(() => {
+        btnJoinGroup.disabled = false;
+        btnJoinGroup.style.display = "inline";
+        btnLeaveGroup.disabled = true;
+        btnLeaveGroup.style.display = "none";
+        txtToGroup.readOnly = false;
+      });
   }
 }

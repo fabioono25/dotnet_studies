@@ -14,37 +14,22 @@ namespace ChatApp.Server.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AccountController : ControllerBase
+public class AccountController(
+        UserManager<IdentityUser> userManager,
+        IConfiguration configuration,
+        IHubContext<ChatHub> hubContext)
+    : ControllerBase
 {
-    private readonly UserManager<IdentityUser> _userManager;
-    private readonly IConfiguration _configuration;
-    private readonly IHubContext<ChatHub> _hubContext;
-
-    public AccountController(UserManager<IdentityUser> userManager, IConfiguration configuration, IHubContext<ChatHub> hubContext)
-    {
-        _userManager = userManager;
-        _configuration = configuration;
-        _hubContext = hubContext;
-    }
+    private readonly IHubContext<ChatHub> _hubContext = hubContext;
 
     // Create an action to register a new user
-    /// <summary>
-    /// example:
-    /// {
-    //   "userName": "user1",
-    //   "email": "user1@example.com",
-    //   "password": "Passw0rd!"
-    // }
-    /// </summary>
-    /// <param name="model"></param>
-    /// <returns></returns>
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] AddOrUpdateUserModel model)
     {
         // Check if the model is valid
         if (ModelState.IsValid)
         {
-            var existedUser = await _userManager.FindByNameAsync(model.UserName);
+            var existedUser = await userManager.FindByNameAsync(model.UserName);
             if (existedUser != null)
             {
                 ModelState.AddModelError("", "User name is already taken");
@@ -58,7 +43,7 @@ public class AccountController : ControllerBase
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             // Try to save the user
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await userManager.CreateAsync(user, model.Password);
             // If the user is successfully created, return Ok
             if (result.Succeeded)
             {
@@ -85,10 +70,10 @@ public class AccountController : ControllerBase
         // Check if the model is valid
         if (ModelState.IsValid)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
+            var user = await userManager.FindByNameAsync(model.UserName);
             if (user != null)
             {
-                if (await _userManager.CheckPasswordAsync(user, model.Password))
+                if (await userManager.CheckPasswordAsync(user, model.Password))
                 {
                     var token = GenerateToken(model.UserName);
                     return Ok(new { token });
@@ -102,9 +87,9 @@ public class AccountController : ControllerBase
 
     private string? GenerateToken(string userName)
     {
-        var secret = _configuration["JwtConfig:Secret"];
-        var issuer = _configuration["JwtConfig:ValidIssuer"];
-        var audience = _configuration["JwtConfig:ValidAudiences"];
+        var secret = configuration["JwtConfig:Secret"];
+        var issuer = configuration["JwtConfig:ValidIssuer"];
+        var audience = configuration["JwtConfig:ValidAudiences"];
         if (secret is null || issuer is null || audience is null)
         {
             throw new ApplicationException("Jwt is not set in the configuration");
