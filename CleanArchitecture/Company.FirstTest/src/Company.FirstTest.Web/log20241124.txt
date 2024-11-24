@@ -1,0 +1,78 @@
+2024-11-24 19:32:56.842 +01:00 [INF] Registered 5 endpoints in 1,228 milliseconds.
+2024-11-24 19:32:57.978 +01:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2024-11-24 19:32:58.081 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "PhoneNumber_CountryCode" TEXT NULL,
+    "PhoneNumber_Number" TEXT NULL,
+    "PhoneNumber_Extension" TEXT NULL
+);
+2024-11-24 19:32:58.278 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-11-24 19:32:58.403 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-11-24 19:32:58.422 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-11-24 19:32:58.555 +01:00 [INF] Now listening on: https://localhost:57679
+2024-11-24 19:32:58.557 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-24 19:32:58.558 +01:00 [INF] Hosting environment: Development
+2024-11-24 19:32:58.560 +01:00 [INF] Content root path: C:\Users\onfa\Documents\study\dotnet_studies\CleanArchitecture\Company.FirstTest\src\Company.FirstTest.Web
+2024-11-24 19:33:40.825 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:57679/Contributors - null null
+2024-11-24 19:33:40.863 +01:00 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2024-11-24 19:33:40.908 +01:00 [INF] Handling ListContributorsQuery
+2024-11-24 19:33:40.910 +01:00 [INF] Property Skip : null
+2024-11-24 19:33:40.911 +01:00 [INF] Property Take : null
+2024-11-24 19:33:40.993 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors
+2024-11-24 19:33:41.000 +01:00 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Company.FirstTest.UseCases.Contributors.ContributorDTO]] in 88 ms
+2024-11-24 19:33:41.028 +01:00 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2024-11-24 19:33:41.035 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:57679/Contributors - 200 null application/json; charset=utf-8 212.0945ms
+2024-11-24 19:35:56.152 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/ - null null
+2024-11-24 19:35:56.157 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/ - 404 0 null 5.0378ms
+2024-11-24 19:35:56.163 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/, Response status code: 404
+2024-11-24 19:35:56.260 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/favicon.ico - null null
+2024-11-24 19:35:56.264 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/favicon.ico - 404 0 null 3.5553ms
+2024-11-24 19:35:56.267 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/favicon.ico, Response status code: 404
+2024-11-24 19:36:03.066 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger - null null
+2024-11-24 19:36:03.071 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger - 302 0 null 5.3343ms
+2024-11-24 19:36:03.077 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-11-24 19:36:03.151 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 74.1634ms
+2024-11-24 19:36:03.185 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-11-24 19:36:03.185 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-11-24 19:36:03.186 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-11-24 19:36:03.187 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-24 19:36:03.197 +01:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-11-24 19:36:03.198 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 13.0236ms
+2024-11-24 19:36:03.202 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-24 19:36:03.204 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 19.1163ms
+2024-11-24 19:36:03.207 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-11-24 19:36:03.209 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-11-24 19:36:03.211 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 24.4125ms
+2024-11-24 19:36:03.213 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 27.1205ms
+2024-11-24 19:36:03.368 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-11-24 19:36:03.374 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-11-24 19:36:03.376 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 7.3614ms
+2024-11-24 19:36:03.436 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-11-24 19:36:03.489 +01:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-11-24 19:36:03.988 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 551.6318ms
+2024-11-24 19:36:15.369 +01:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-11-24 19:36:15.372 +01:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 3.3841ms
+2024-11-24 19:37:21.459 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:57679/Contributors - null null
+2024-11-24 19:37:21.464 +01:00 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2024-11-24 19:37:21.467 +01:00 [INF] Handling ListContributorsQuery
+2024-11-24 19:37:21.468 +01:00 [INF] Property Skip : null
+2024-11-24 19:37:21.470 +01:00 [INF] Property Take : null
+2024-11-24 19:37:21.541 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors
+2024-11-24 19:37:21.546 +01:00 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[Company.FirstTest.UseCases.Contributors.ContributorDTO]] in 73 ms
+2024-11-24 19:37:21.548 +01:00 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2024-11-24 19:37:21.549 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:57679/Contributors - 200 null application/json; charset=utf-8 89.822ms
