@@ -4,6 +4,7 @@ using NerdStore.Core.Messages.CommonMessages.DomainEvents;
 
 namespace NerdStore.Catalogo.Domain.Events
 {
+    // This class represents a domain event that is triggered when a product is below stock
     public class ProdutoAbaixoEstoqueEvent : DomainEvent
     {
         public int QuantidadeRestante { get; private set; }

@@ -19,7 +19,7 @@ namespace NerdStore.Catalogo.Domain
         public Categoria Categoria { get; private set; }
         public Guid CategoriaId { get; private set; } // EF Relation
 
-        protected Produto() { }
+        protected Produto() { } // EF Relation
         public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriaId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
             // why this approach: because it's a good practice to use it

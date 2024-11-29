@@ -26,9 +26,12 @@ namespace NerdStore.Catalogo.Domain.Events
 
         public async Task Handle(ProdutoAbaixoEstoqueEvent mensagem, CancellationToken cancellationToken)
         {
+            // toda mensagem é relacionada a um agregado
             var produto = await _produtoRepository.ObterPorId(mensagem.AggregateId);
 
-            // Enviar um email para aquisicao de mais produtos.
+            // TODO: Enviar um email para aquisicao de mais produtos.
+            // TODO: Enviar um SMS para o setor de compras.
+            // TODO: Disparar uma task para repor o estoque do produto.
         }
 
         public async Task Handle(PedidoIniciadoEvent message, CancellationToken cancellationToken)
