@@ -4,13 +4,17 @@ using NerdStore.Core.Messages;
 
 namespace NerdStore.Core.DomainObjects
 {
+    // classe de marcação para identificar que é uma entidade
+    // abstract para não ser instanciada
     public abstract class Entity
     {
+        // Guid é um identificador único global
         public Guid Id { get; set; }
 
         private List<Event> _notificacoes;
         public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly();
 
+        // construtor protegido para que não seja instanciado fora da classe
         protected Entity()
         {
             Id = Guid.NewGuid();
@@ -32,6 +36,7 @@ namespace NerdStore.Core.DomainObjects
             _notificacoes?.Clear();
         }
 
+        // compare entities (comparing IDs)
         public override bool Equals(object obj)
         {
             var compareTo = obj as Entity;
@@ -42,6 +47,16 @@ namespace NerdStore.Core.DomainObjects
             return Id.Equals(compareTo.Id);
         }
 
+        // C# 12
+        // public override bool Equals(object obj)
+        // {
+        //     if (obj is not Entity compareTo) return false;
+        //     if (ReferenceEquals(this, compareTo)) return true;
+
+        //     return Id.Equals(compareTo.Id);
+        // }
+
+        // compare entities (comparing IDs)
         public static bool operator ==(Entity a, Entity b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
@@ -58,11 +73,13 @@ namespace NerdStore.Core.DomainObjects
             return !(a == b);
         }
 
+        // generating a random hashCode.
         public override int GetHashCode()
         {
             return (GetType().GetHashCode() * 907) + Id.GetHashCode();
         }
 
+        // objective: to show the entity name and its ID
         public override string ToString()
         {
             return $"{GetType().Name} [Id={Id}]";

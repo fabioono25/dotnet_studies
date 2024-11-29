@@ -2,6 +2,8 @@
 
 namespace NerdStore.Core.DomainObjects
 {
+    // assertion-concern pattern: 
+    // what is it: it's a pattern that helps to validate the domain
     public class Validacoes
     {
         public static void ValidarSeIgual(object object1, object object2, string mensagem)

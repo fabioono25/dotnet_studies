@@ -5,7 +5,7 @@ namespace NerdStore.Catalogo.Domain
 {
     public class Produto : Entity, IAggregateRoot
     {
-        public Guid CategoriaId { get; private set; }
+        // set is always private. Why: because it's a good practice to use it
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
         public bool Ativo { get; private set; }
@@ -14,11 +14,18 @@ namespace NerdStore.Catalogo.Domain
         public string Imagem { get; private set; }
         public int QuantidadeEstoque { get; private set; }
         public Dimensoes Dimensoes { get; private set; }
+
+        // entity will become table. This is why the necessity of CategoryId
         public Categoria Categoria { get; private set; }
+        public Guid CategoriaId { get; private set; } // EF Relation
 
         protected Produto() { }
         public Produto(string nome, string descricao, bool ativo, decimal valor, Guid categoriaId, DateTime dataCadastro, string imagem, Dimensoes dimensoes)
         {
+            // why this approach: because it's a good practice to use it
+            // fast-fail validation
+            // if (string.IsNullOrWhiteSpace(nome)) throw new DomainException("Nome do produto não pode estar vazio");
+            
             CategoriaId = categoriaId;
             Nome = nome;
             Descricao = descricao;
@@ -31,6 +38,7 @@ namespace NerdStore.Catalogo.Domain
             Validar();
         }
 
+        // Ad.hoc setter. Why: because it's a good practice to use it
         public void Ativar() => Ativo = true;
 
         public void Desativar() => Ativo = false;
@@ -64,6 +72,7 @@ namespace NerdStore.Catalogo.Domain
             return QuantidadeEstoque >= quantidade;
         }
 
+        // verify the consistency of the entity
         public void Validar()
         {
             Validacoes.ValidarSeVazio(Nome, "O campo Nome do produto não pode estar vazio");
