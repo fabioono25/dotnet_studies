@@ -17,7 +17,11 @@ namespace NerdStore.Vendas.Domain
         public DateTime DataCadastro { get; private set; }
         public PedidoStatus PedidoStatus { get; private set; }
 
+        // private list, for the manipulation in a controlled way.
+        // the list is readonly, so it can't be changed from outside the class.
         private readonly List<PedidoItem> _pedidoItems;
+
+        // readonly collection, so it can't be changed from outside the class.
         public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
 
         // EF Rel.
@@ -32,6 +36,7 @@ namespace NerdStore.Vendas.Domain
             _pedidoItems = new List<PedidoItem>();
         }
 
+        // Used by EF
         protected Pedido()
         {
             _pedidoItems = new List<PedidoItem>();
@@ -162,6 +167,7 @@ namespace NerdStore.Vendas.Domain
             PedidoStatus = PedidoStatus.Cancelado;
         }
 
+        // nested class. Objective: to create a new order in draft status.
         public static class PedidoFactory
         {
             public static Pedido NovoPedidoRascunho(Guid clienteId)

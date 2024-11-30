@@ -16,6 +16,8 @@ namespace NerdStore.Vendas.Application.Queries
             _pedidoRepository = pedidoRepository;
         }
 
+        // contexto especifico para Carrinho poderia ser criado.
+        // para fins de demonstração, foi mantido o contexto de Pedido.
         public async Task<CarrinhoViewModel> ObterCarrinhoCliente(Guid clienteId)
         {
             var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(clienteId);

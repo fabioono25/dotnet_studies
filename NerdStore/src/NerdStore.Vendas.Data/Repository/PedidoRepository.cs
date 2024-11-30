@@ -35,7 +35,7 @@ namespace NerdStore.Vendas.Data.Repository
             if (pedido == null) return null;
 
             await _context.Entry(pedido)
-                .Collection(i => i.PedidoItems).LoadAsync();
+                .Collection(i => i.PedidoItems).LoadAsync(); // why this structure? kind of lazy-loading.
 
             if (pedido.VoucherId != null)
             {

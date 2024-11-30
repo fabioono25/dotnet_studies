@@ -95,6 +95,7 @@ namespace NerdStore.Vendas.Application.Commands
             _pedidoRepository.AtualizarItem(pedidoItem);
             _pedidoRepository.Atualizar(pedido);
 
+            // eventos sao disparados aqui tambem
             return await _pedidoRepository.UnitOfWork.Commit();
         }
 

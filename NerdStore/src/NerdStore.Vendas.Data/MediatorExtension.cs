@@ -7,6 +7,7 @@ namespace NerdStore.Vendas.Data
 {
     public static class MediatorExtension
     {
+        // extensao do MediatorHandler para publicar eventos
         public static async Task PublicarEventos(this IMediatorHandler mediator, VendasContext ctx)
         {
             var domainEntities = ctx.ChangeTracker

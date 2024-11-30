@@ -85,6 +85,7 @@ namespace NerdStore.Core.DomainObjects
             return $"{GetType().Name} [Id={Id}]";
         }
 
+        // entity must validate itself
         public virtual bool EhValido()
         {
             throw new NotImplementedException();
