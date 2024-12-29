@@ -3,4 +3,7 @@
 GET {{PlatformService_HostAddress}}/weatherforecast/
 Accept: application/json
 
+GET ${PlatformService_HostAddress}/api/platforms
+Accept: application/json
+
 ###
