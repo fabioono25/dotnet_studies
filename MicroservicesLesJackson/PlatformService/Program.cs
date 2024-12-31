@@ -29,6 +29,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Listen on all network interfaces
+// without this, the app will only listen on localhost
+// app.Urls.Add("http://*:5555");
+
 PrepDb.PrepPopulation(app, false);
 
 app.Run();
