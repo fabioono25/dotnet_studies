@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+// this line is used to generate the c# namespace. It contains the namespace of the generated c# code
+option csharp_namespace = "PlatformService";
+
+// Here we define the service and the messages that will be used in the service
+service GrpcPlatform {
+    // rpc: is used to define a method in the service
+    rpc GetAllPlatforms (GetAllRequest) returns (PlatformResponse);
+}
+
+// the request message that will be used in the GetAllPlatforms method
+message GetAllRequest {}
+
+// the response message that will be used in the GetAllPlatforms method
+message GrpcPlatformModel{
+    int32 platformId = 1;
+    string name = 2;
+    string publisher = 3;
+}
+
+message PlatformResponse {
+    // the repeated keyword is used to define a list of GrpcPlatformModel
+    repeated GrpcPlatformModel platform = 1;
+}
+
